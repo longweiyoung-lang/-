@@ -1,9 +1,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject private var viewModel = HomeViewModel()
+
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
+            ScrollView {
                 VStack(spacing: 8) {
                     Image(systemName: "camera.macro")
                         .font(.system(size: 54))
@@ -15,26 +17,50 @@ struct HomeView: View {
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 }
+                .padding(.top, 24)
 
-                VStack(spacing: 12) {
-                    Button {
-                    } label: {
-                        Label("拍照识别", systemImage: "camera")
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-
-                    Button {
-                    } label: {
-                        Label("从相册选择", systemImage: "photo")
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.bordered)
+                VStack(alignment: .leading, spacing: 12) {
+                    Label(viewModel.taskTitle, systemImage: "checkmark.circle")
+                        .font(.headline)
+                    ProgressView(value: Double(viewModel.completedTaskCount), total: Double(viewModel.totalTaskCount))
+                    Text("\(viewModel.completedTaskCount)/\(viewModel.totalTaskCount) 个任务已完成")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
                 }
+                .padding()
+                .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 8))
+
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("最近发现")
+                        .font(.headline)
+
+                    ForEach(viewModel.recentObservations) { observation in
+                        HStack(spacing: 12) {
+                            Image(systemName: observation.imageSystemName)
+                                .font(.title2)
+                                .foregroundStyle(.green)
+                                .frame(width: 36, height: 36)
+
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(observation.commonNameZh)
+                                    .font(.subheadline.bold())
+                                Text(observation.scientificName)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+
+                            Spacer()
+
+                            Text(observation.category.displayName)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+                .padding()
+                .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 8))
 
                 SafetyNoticeView()
-
-                Spacer()
             }
             .padding()
             .navigationTitle("首页")
@@ -45,4 +71,3 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
-

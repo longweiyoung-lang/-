@@ -20,6 +20,16 @@
 		10000000000000000000010B /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000000B /* TasksView.swift */; };
 		10000000000000000000010C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000000C /* SettingsView.swift */; };
 		10000000000000000000010D /* SafetyNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10000000000000000000000D /* SafetyNoticeView.swift */; };
+		200000000000000000000101 /* MockObservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000001 /* MockObservation.swift */; };
+		200000000000000000000102 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000002 /* HomeViewModel.swift */; };
+		200000000000000000000103 /* CaptureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000003 /* CaptureViewModel.swift */; };
+		200000000000000000000104 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000004 /* CollectionViewModel.swift */; };
+		200000000000000000000105 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000005 /* MapViewModel.swift */; };
+		200000000000000000000106 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000006 /* ProfileViewModel.swift */; };
+		200000000000000000000107 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000007 /* CaptureView.swift */; };
+		200000000000000000000108 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000008 /* CollectionView.swift */; };
+		200000000000000000000109 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000009 /* MapView.swift */; };
+		20000000000000000000010A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000A /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +47,16 @@
 		10000000000000000000000C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		10000000000000000000000D /* SafetyNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyNoticeView.swift; sourceTree = "<group>"; };
 		10000000000000000000000E /* NatureDex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NatureDex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000001 /* MockObservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockObservation.swift; sourceTree = "<group>"; };
+		200000000000000000000002 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		200000000000000000000003 /* CaptureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewModel.swift; sourceTree = "<group>"; };
+		200000000000000000000004 /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
+		200000000000000000000005 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		200000000000000000000006 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		200000000000000000000007 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
+		200000000000000000000008 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		200000000000000000000009 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		20000000000000000000000A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +85,7 @@
 				100000000000000000000002 /* ContentView.swift */,
 				100000000000000000000304 /* Models */,
 				100000000000000000000305 /* SwiftDataModels */,
+				200000000000000000000201 /* ViewModels */,
 				100000000000000000000306 /* Views */,
 			);
 			path = NatureDex;
@@ -84,6 +105,7 @@
 				100000000000000000000003 /* SpeciesCategory.swift */,
 				100000000000000000000004 /* ObservationSource.swift */,
 				100000000000000000000005 /* SafetyCopy.swift */,
+				200000000000000000000001 /* MockObservation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -101,6 +123,10 @@
 			isa = PBXGroup;
 			children = (
 				100000000000000000000008 /* HomeView.swift */,
+				200000000000000000000007 /* CaptureView.swift */,
+				200000000000000000000008 /* CollectionView.swift */,
+				200000000000000000000009 /* MapView.swift */,
+				20000000000000000000000A /* ProfileView.swift */,
 				100000000000000000000009 /* DexListView.swift */,
 				10000000000000000000000A /* MapFootprintView.swift */,
 				10000000000000000000000B /* TasksView.swift */,
@@ -108,6 +134,18 @@
 				10000000000000000000000D /* SafetyNoticeView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		200000000000000000000201 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				200000000000000000000002 /* HomeViewModel.swift */,
+				200000000000000000000003 /* CaptureViewModel.swift */,
+				200000000000000000000004 /* CollectionViewModel.swift */,
+				200000000000000000000005 /* MapViewModel.swift */,
+				200000000000000000000006 /* ProfileViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,9 +222,19 @@
 				100000000000000000000103 /* SpeciesCategory.swift in Sources */,
 				100000000000000000000104 /* ObservationSource.swift in Sources */,
 				100000000000000000000105 /* SafetyCopy.swift in Sources */,
+				200000000000000000000101 /* MockObservation.swift in Sources */,
 				100000000000000000000106 /* ObservationEntity.swift in Sources */,
 				100000000000000000000107 /* SpeciesEntity.swift in Sources */,
+				200000000000000000000102 /* HomeViewModel.swift in Sources */,
+				200000000000000000000103 /* CaptureViewModel.swift in Sources */,
+				200000000000000000000104 /* CollectionViewModel.swift in Sources */,
+				200000000000000000000105 /* MapViewModel.swift in Sources */,
+				200000000000000000000106 /* ProfileViewModel.swift in Sources */,
 				100000000000000000000108 /* HomeView.swift in Sources */,
+				200000000000000000000107 /* CaptureView.swift in Sources */,
+				200000000000000000000108 /* CollectionView.swift in Sources */,
+				200000000000000000000109 /* MapView.swift in Sources */,
+				20000000000000000000010A /* ProfileView.swift in Sources */,
 				100000000000000000000109 /* DexListView.swift in Sources */,
 				10000000000000000000010A /* MapFootprintView.swift in Sources */,
 				10000000000000000000010B /* TasksView.swift in Sources */,
@@ -404,4 +452,3 @@
 	};
 	rootObject = 100000000000000000000501 /* Project object */;
 }
-

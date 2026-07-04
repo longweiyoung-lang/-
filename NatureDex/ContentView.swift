@@ -8,24 +8,24 @@ struct ContentView: View {
                     Label("首页", systemImage: "house")
                 }
 
-            DexListView()
+            CaptureView()
+                .tabItem {
+                    Label("拍照", systemImage: "camera")
+                }
+
+            CollectionView()
                 .tabItem {
                     Label("图鉴", systemImage: "square.grid.2x2")
                 }
 
-            MapFootprintView()
+            MapView()
                 .tabItem {
                     Label("地图", systemImage: "map")
                 }
 
-            TasksView()
+            ProfileView()
                 .tabItem {
-                    Label("任务", systemImage: "checklist")
-                }
-
-            SettingsView()
-                .tabItem {
-                    Label("设置", systemImage: "gearshape")
+                    Label("我的", systemImage: "person.crop.circle")
                 }
         }
     }
@@ -34,4 +34,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
