@@ -1,7 +1,11 @@
+import PhotosUI
 import SwiftUI
+import UIKit
 
 struct CaptureView: View {
     @StateObject private var viewModel = CaptureViewModel()
+    @State private var selectedPhotoItem: PhotosPickerItem?
+    @State private var isShowingCamera = false
 
     var body: some View {
         NavigationStack {
@@ -24,29 +28,67 @@ struct CaptureView: View {
 
                     VStack(spacing: 12) {
                         Button {
-                            viewModel.simulateCameraCapture()
+                            isShowingCamera = true
                         } label: {
                             Label("拍照", systemImage: "camera")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
+                        .disabled(viewModel.isIdentifying || !UIImagePickerController.isSourceTypeAvailable(.camera))
 
-                        Button {
-                            viewModel.simulatePhotoSelection()
-                        } label: {
+                        PhotosPicker(selection: $selectedPhotoItem, matching: .images) {
                             Label("从相册选择", systemImage: "photo")
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.bordered)
+                        .disabled(viewModel.isIdentifying)
                     }
 
-                    if let selectedSource = viewModel.selectedSource {
+                    if let selectedImage = viewModel.selectedImage {
                         VStack(alignment: .leading, spacing: 12) {
-                            Text(selectedSource == .camera ? "模拟拍照结果" : "模拟相册结果")
+                            Text(viewModel.selectedSource == .camera ? "拍摄图片" : "相册图片")
                                 .font(.headline)
 
-                            ForEach(viewModel.mockCandidates) { candidate in
-                                CandidatePreviewRow(candidate: candidate)
+                            Image(uiImage: selectedImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 220)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        }
+                    }
+
+                    if viewModel.isIdentifying {
+                        VStack(spacing: 12) {
+                            ProgressView()
+                            Text("识别中...")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 8))
+                    }
+
+                    if let errorMessage = viewModel.errorMessage {
+                        Text(errorMessage)
+                            .font(.footnote)
+                            .foregroundStyle(.red)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+
+                    if !viewModel.candidates.isEmpty {
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text("候选物种")
+                                .font(.headline)
+
+                            ForEach(viewModel.candidates) { candidate in
+                                Button {
+                                    viewModel.selectCandidate(candidate)
+                                } label: {
+                                    CandidatePreviewRow(candidate: candidate)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                         .padding()
@@ -58,16 +100,44 @@ struct CaptureView: View {
                 .padding()
             }
             .navigationTitle("拍照")
+            .navigationDestination(item: $viewModel.selectedCandidate) { candidate in
+                SpeciesConfirmView(candidate: candidate)
+            }
+            .sheet(isPresented: $isShowingCamera) {
+                CameraPickerView { image in
+                    Task {
+                        await viewModel.handlePickedImage(image, source: .camera)
+                    }
+                }
+                .ignoresSafeArea()
+            }
+            .onChange(of: selectedPhotoItem) { _, newItem in
+                guard let newItem else {
+                    return
+                }
+
+                Task {
+                    do {
+                        if let data = try await newItem.loadTransferable(type: Data.self) {
+                            await viewModel.handlePickedImageData(data, source: .photoLibrary)
+                        }
+                    } catch {
+                        viewModel.errorMessage = "无法读取相册图片，请重试。"
+                    }
+
+                    selectedPhotoItem = nil
+                }
+            }
         }
     }
 }
 
 private struct CandidatePreviewRow: View {
-    let candidate: MockObservation
+    let candidate: IdentificationCandidate
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: candidate.imageSystemName)
+            Image(systemName: candidate.category.symbolName)
                 .font(.title2)
                 .foregroundStyle(.green)
                 .frame(width: 36, height: 36)
@@ -82,14 +152,20 @@ private struct CandidatePreviewRow: View {
 
             Spacer()
 
-            Text("\(Int(candidate.confidence * 100))%")
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            VStack(alignment: .trailing, spacing: 4) {
+                Text("\(Int(candidate.confidence * 100))%")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                Image(systemName: "chevron.right")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            }
         }
+        .contentShape(Rectangle())
     }
 }
 
 #Preview {
     CaptureView()
+        .modelContainer(for: SightingEntity.self, inMemory: true)
 }
-

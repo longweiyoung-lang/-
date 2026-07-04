@@ -30,6 +30,17 @@
 		200000000000000000000108 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000008 /* CollectionView.swift */; };
 		200000000000000000000109 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000009 /* MapView.swift */; };
 		20000000000000000000010A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20000000000000000000000A /* ProfileView.swift */; };
+		300000000000000000000101 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300000000000000000000001 /* Species.swift */; };
+		300000000000000000000102 /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300000000000000000000002 /* Sighting.swift */; };
+		300000000000000000000103 /* CollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300000000000000000000003 /* CollectionItem.swift */; };
+		300000000000000000000104 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300000000000000000000004 /* Mission.swift */; };
+		300000000000000000000105 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300000000000000000000005 /* Badge.swift */; };
+		300000000000000000000106 /* IdentificationCandidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300000000000000000000006 /* IdentificationCandidate.swift */; };
+		300000000000000000000107 /* NatureDexMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300000000000000000000007 /* NatureDexMockData.swift */; };
+		400000000000000000000102 /* MockIdentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400000000000000000000002 /* MockIdentificationService.swift */; };
+		400000000000000000000103 /* SpeciesConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400000000000000000000003 /* SpeciesConfirmView.swift */; };
+		400000000000000000000104 /* CameraPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400000000000000000000004 /* CameraPickerView.swift */; };
+		500000000000000000000101 /* SightingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500000000000000000000001 /* SightingEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +68,17 @@
 		200000000000000000000008 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		200000000000000000000009 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		20000000000000000000000A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		300000000000000000000001 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
+		300000000000000000000002 /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
+		300000000000000000000003 /* CollectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionItem.swift; sourceTree = "<group>"; };
+		300000000000000000000004 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
+		300000000000000000000005 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		300000000000000000000006 /* IdentificationCandidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationCandidate.swift; sourceTree = "<group>"; };
+		300000000000000000000007 /* NatureDexMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatureDexMockData.swift; sourceTree = "<group>"; };
+		400000000000000000000002 /* MockIdentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIdentificationService.swift; sourceTree = "<group>"; };
+		400000000000000000000003 /* SpeciesConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesConfirmView.swift; sourceTree = "<group>"; };
+		400000000000000000000004 /* CameraPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPickerView.swift; sourceTree = "<group>"; };
+		500000000000000000000001 /* SightingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +107,7 @@
 				100000000000000000000002 /* ContentView.swift */,
 				100000000000000000000304 /* Models */,
 				100000000000000000000305 /* SwiftDataModels */,
+				400000000000000000000202 /* Services */,
 				200000000000000000000201 /* ViewModels */,
 				100000000000000000000306 /* Views */,
 			);
@@ -105,6 +128,13 @@
 				100000000000000000000003 /* SpeciesCategory.swift */,
 				100000000000000000000004 /* ObservationSource.swift */,
 				100000000000000000000005 /* SafetyCopy.swift */,
+				300000000000000000000001 /* Species.swift */,
+				300000000000000000000002 /* Sighting.swift */,
+				300000000000000000000003 /* CollectionItem.swift */,
+				300000000000000000000004 /* Mission.swift */,
+				300000000000000000000005 /* Badge.swift */,
+				300000000000000000000006 /* IdentificationCandidate.swift */,
+				300000000000000000000007 /* NatureDexMockData.swift */,
 				200000000000000000000001 /* MockObservation.swift */,
 			);
 			path = Models;
@@ -114,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				100000000000000000000006 /* ObservationEntity.swift */,
+				500000000000000000000001 /* SightingEntity.swift */,
 				100000000000000000000007 /* SpeciesEntity.swift */,
 			);
 			path = SwiftDataModels;
@@ -127,6 +158,8 @@
 				200000000000000000000008 /* CollectionView.swift */,
 				200000000000000000000009 /* MapView.swift */,
 				20000000000000000000000A /* ProfileView.swift */,
+				400000000000000000000003 /* SpeciesConfirmView.swift */,
+				400000000000000000000004 /* CameraPickerView.swift */,
 				100000000000000000000009 /* DexListView.swift */,
 				10000000000000000000000A /* MapFootprintView.swift */,
 				10000000000000000000000B /* TasksView.swift */,
@@ -146,6 +179,14 @@
 				200000000000000000000006 /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		400000000000000000000202 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				400000000000000000000002 /* MockIdentificationService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,19 +263,30 @@
 				100000000000000000000103 /* SpeciesCategory.swift in Sources */,
 				100000000000000000000104 /* ObservationSource.swift in Sources */,
 				100000000000000000000105 /* SafetyCopy.swift in Sources */,
+				300000000000000000000101 /* Species.swift in Sources */,
+				300000000000000000000102 /* Sighting.swift in Sources */,
+				300000000000000000000103 /* CollectionItem.swift in Sources */,
+				300000000000000000000104 /* Mission.swift in Sources */,
+				300000000000000000000105 /* Badge.swift in Sources */,
+				300000000000000000000106 /* IdentificationCandidate.swift in Sources */,
+				300000000000000000000107 /* NatureDexMockData.swift in Sources */,
 				200000000000000000000101 /* MockObservation.swift in Sources */,
 				100000000000000000000106 /* ObservationEntity.swift in Sources */,
+				500000000000000000000101 /* SightingEntity.swift in Sources */,
 				100000000000000000000107 /* SpeciesEntity.swift in Sources */,
 				200000000000000000000102 /* HomeViewModel.swift in Sources */,
 				200000000000000000000103 /* CaptureViewModel.swift in Sources */,
 				200000000000000000000104 /* CollectionViewModel.swift in Sources */,
 				200000000000000000000105 /* MapViewModel.swift in Sources */,
 				200000000000000000000106 /* ProfileViewModel.swift in Sources */,
+				400000000000000000000102 /* MockIdentificationService.swift in Sources */,
 				100000000000000000000108 /* HomeView.swift in Sources */,
 				200000000000000000000107 /* CaptureView.swift in Sources */,
 				200000000000000000000108 /* CollectionView.swift in Sources */,
 				200000000000000000000109 /* MapView.swift in Sources */,
 				20000000000000000000010A /* ProfileView.swift in Sources */,
+				400000000000000000000103 /* SpeciesConfirmView.swift in Sources */,
+				400000000000000000000104 /* CameraPickerView.swift in Sources */,
 				100000000000000000000109 /* DexListView.swift in Sources */,
 				10000000000000000000010A /* MapFootprintView.swift in Sources */,
 				10000000000000000000010B /* TasksView.swift in Sources */,

@@ -26,5 +26,21 @@ enum SpeciesCategory: String, Codable, CaseIterable, Identifiable {
             "未知"
         }
     }
-}
 
+    var symbolName: String {
+        switch self {
+        case .plant:
+            "camera.macro"
+        case .insect:
+            "ladybug"
+        case .bird:
+            "bird"
+        case .animal:
+            "pawprint"
+        case .other:
+            "questionmark.circle"
+        case .unknown:
+            "questionmark.diamond"
+        }
+    }
+}

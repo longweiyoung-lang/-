@@ -14,37 +14,26 @@ struct MockObservation: Identifiable {
 }
 
 extension MockObservation {
-    static let samples: [MockObservation] = [
+    static let samples: [MockObservation] = NatureDexMockData.sightings.map { sighting in
         MockObservation(
-            commonNameZh: "月季",
-            scientificName: "Rosa chinensis",
-            category: .plant,
-            discoveredAt: .now.addingTimeInterval(-3600),
-            imageSystemName: "camera.macro",
-            blurredCoordinate: CLLocationCoordinate2D(latitude: 31.2304, longitude: 121.4737),
-            locationName: "上海市附近",
-            confidence: 0.86
-        ),
-        MockObservation(
-            commonNameZh: "七星瓢虫",
-            scientificName: "Coccinella septempunctata",
-            category: .insect,
-            discoveredAt: .now.addingTimeInterval(-86_400),
-            imageSystemName: "ladybug",
-            blurredCoordinate: CLLocationCoordinate2D(latitude: 31.2240, longitude: 121.4810),
-            locationName: "公园附近",
-            confidence: 0.79
-        ),
-        MockObservation(
-            commonNameZh: "白头鹎",
-            scientificName: "Pycnonotus sinensis",
-            category: .bird,
-            discoveredAt: .now.addingTimeInterval(-172_800),
-            imageSystemName: "bird",
-            blurredCoordinate: CLLocationCoordinate2D(latitude: 31.2380, longitude: 121.4620),
-            locationName: "小区附近",
-            confidence: 0.74
+            commonNameZh: sighting.commonNameZh,
+            scientificName: sighting.scientificName,
+            category: sighting.category,
+            discoveredAt: sighting.foundAt,
+            imageSystemName: sighting.category.symbolName,
+            blurredCoordinate: sighting.blurredCoordinate,
+            locationName: sighting.locationName ?? "未知区域",
+            confidence: sighting.confidence
         )
-    ]
+    }
 }
 
+private extension Sighting {
+    var blurredCoordinate: CLLocationCoordinate2D? {
+        guard let blurredLatitude, let blurredLongitude else {
+            return nil
+        }
+
+        return CLLocationCoordinate2D(latitude: blurredLatitude, longitude: blurredLongitude)
+    }
+}

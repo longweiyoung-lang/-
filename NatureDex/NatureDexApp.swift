@@ -9,8 +9,8 @@ struct NatureDexApp: App {
         }
         .modelContainer(for: [
             ObservationEntity.self,
+            SightingEntity.self,
             SpeciesEntity.self
         ])
     }
 }
-

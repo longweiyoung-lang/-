@@ -1,24 +1,32 @@
 import Foundation
+import SwiftData
 
 @MainActor
 final class CollectionViewModel: ObservableObject {
-    @Published var observations: [MockObservation]
     @Published var selectedCategory: SpeciesCategory?
 
     init(
-        observations: [MockObservation] = MockObservation.samples,
         selectedCategory: SpeciesCategory? = nil
     ) {
-        self.observations = observations
         self.selectedCategory = selectedCategory
     }
 
-    var filteredObservations: [MockObservation] {
+    let filterCategories: [SpeciesCategory] = [
+        .plant,
+        .bird,
+        .insect,
+        .animal
+    ]
+
+    func filteredSightings(from sightings: [SightingEntity]) -> [SightingEntity] {
         guard let selectedCategory else {
-            return observations
+            return sightings
         }
 
-        return observations.filter { $0.category == selectedCategory }
+        return sightings.filter { $0.category == selectedCategory }
+    }
+
+    func delete(_ sighting: SightingEntity, modelContext: ModelContext) {
+        modelContext.delete(sighting)
     }
 }
-

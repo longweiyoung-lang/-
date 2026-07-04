@@ -33,4 +33,9 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: [
+            ObservationEntity.self,
+            SightingEntity.self,
+            SpeciesEntity.self
+        ], inMemory: true)
 }
